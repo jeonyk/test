@@ -1,0 +1,29 @@
+Index: webpack.config.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- webpack.config.js	(revision )
++++ webpack.config.js	(revision )
+@@ -0,0 +1,20 @@
++const path = require('path');
++
++module.exports = {
++    entry: './src/index.js',
++    output: {
++        filename: 'main.js',
++        path: path.resolve(__dirname, 'dist')
++    },
++    module: {
++        rules: [
++            {
++                test: /\.css$/,
++                use: [ "style-loader", "css-loader" ]
++            }
++        ]
++    },
++    plugins: [
++        new HtmlWebpackPlugin()
++    ]
++};
+\ No newline at end of file
